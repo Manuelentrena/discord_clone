@@ -1,0 +1,7 @@
+.eslintrc.cjs
+dist
+node_modules
+.vscode
+*.config.js
+*.config.ts
+next-env.d.ts
