@@ -1,4 +1,5 @@
 "use client";
+import { FileUpload } from "@/components/file-upload";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -62,7 +63,7 @@ export const InitialModal = () => {
       <DialogContent className="bg-white text-black p-0 overflow-hidden">
         <DialogHeader className="pt-8 px-6">
           <DialogTitle className="text-2xl text-center font-bold">
-            Customaze your server
+            Customize your server
           </DialogTitle>
           <DialogDescription className="text-center text-zinc-500">
             Give your server a personality with a name and an inamge. You can
@@ -73,7 +74,21 @@ export const InitialModal = () => {
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
             <div className="space-y-8 px-6">
               <div className="flex items-center justify-center text-center">
-                TODO: image Upload
+                <FormField
+                  control={form.control}
+                  name="imageUrl"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormControl>
+                        <FileUpload
+                          endpoint="serverImage"
+                          value={field.value}
+                          onChange={field.onChange}
+                        />
+                      </FormControl>
+                    </FormItem>
+                  )}
+                />
               </div>
               <FormField
                 control={form.control}
